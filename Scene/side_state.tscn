@@ -1,0 +1,113 @@
+[gd_scene load_steps=15 format=3 uid="uid://blhvax1umuxev"]
+
+[ext_resource type="Script" uid="uid://buxvf87xryvq8" path="res://Scripts/SideState.cs" id="1_4djas"]
+[ext_resource type="Texture2D" uid="uid://wlsqrqw1tn2m" path="res://Assets/Image/Field/Side/Bird_N.png" id="2_8mpvc"]
+[ext_resource type="Texture2D" uid="uid://dc1d3pioxf5v1" path="res://Assets/Image/Field/Side/Bird_out.png" id="3_3inb5"]
+[ext_resource type="Texture2D" uid="uid://nd8eeguele6p" path="res://Assets/Image/Field/Side/Bug_N.png" id="4_24vsi"]
+[ext_resource type="Texture2D" uid="uid://bok24k1la2byn" path="res://Assets/Image/Field/Side/Bug_out.png" id="5_tvaqi"]
+[ext_resource type="Texture2D" uid="uid://dti6p4246obni" path="res://Assets/Image/Field/Side/Cirno_N.png" id="6_vt83k"]
+[ext_resource type="Texture2D" uid="uid://bjp1bf25algcy" path="res://Assets/Image/Field/Side/Cirno_out.png" id="7_ynfb2"]
+[ext_resource type="Texture2D" uid="uid://dnhvcmxkthlbs" path="res://Assets/Image/Field/Side/Rumia_N.png" id="8_cnpvm"]
+[ext_resource type="Texture2D" uid="uid://c35vc6bbbq7xs" path="res://Assets/Image/Field/Side/Rumia_out.png" id="9_7mgqx"]
+[ext_resource type="Texture2D" uid="uid://f1f1bc2rnwva" path="res://Assets/Image/Field/Side/bar_Side.png" id="10_x835r"]
+[ext_resource type="Texture2D" uid="uid://bsdmaovcj2df8" path="res://Assets/Image/Field/Side/bar_Under.png" id="11_0cgq7"]
+[ext_resource type="Texture2D" uid="uid://bl76q0ttnenn8" path="res://Assets/Image/Field/Side/bar_Progress.png" id="12_kweo3"]
+[ext_resource type="FontFile" uid="uid://chl77pcgwm834" path="res://Fonts/138_Verdana.ttf" id="13_0cgq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fh4qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8mpvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3inb5")
+}],
+"loop": false,
+"name": &"Bird",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_24vsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tvaqi")
+}],
+"loop": false,
+"name": &"Bug",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vt83k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ynfb2")
+}],
+"loop": false,
+"name": &"Cirno",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_cnpvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7mgqx")
+}],
+"loop": false,
+"name": &"Rumia",
+"speed": 1.0
+}]
+
+[node name="SideState" type="Node2D" node_paths=PackedStringArray("Anim", "bar", "OutLabel")]
+script = ExtResource("1_4djas")
+Anim = NodePath("AnimatedSprite2D")
+bar = NodePath("TextureProgressBar")
+OutLabel = NodePath("OutCounter")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fh4qj")
+animation = &"Bird"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-70, 53)
+scale = Vector2(0.382902, 0.251979)
+texture = ExtResource("10_x835r")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -136.0
+offset_top = 45.0
+offset_right = 206.0
+offset_bottom = 112.0
+scale = Vector2(0.383678, 0.244001)
+value = 100.0
+texture_under = ExtResource("11_0cgq7")
+texture_progress = ExtResource("12_kweo3")
+
+[node name="OutCounter" type="Label" parent="."]
+offset_left = -137.0
+offset_top = 13.0
+offset_right = -94.0
+offset_bottom = 36.0
+scale = Vector2(1.63832, 1.63832)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.203922, 0.811765, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("13_0cgq7")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="outs" type="Label" parent="."]
+offset_left = -112.0
+offset_top = 24.0
+offset_right = -69.0
+offset_bottom = 47.0
+scale = Vector2(1.63832, 1.63832)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.203922, 0.811765, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("13_0cgq7")
+theme_override_font_sizes/font_size = 11
+text = "outs"

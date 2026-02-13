@@ -1,0 +1,282 @@
+[gd_scene load_steps=28 format=3 uid="uid://b080dytrktkpt"]
+
+[ext_resource type="Texture2D" uid="uid://ccatjeq2l8cum" path="res://Assets/Image/Field/BG/1.png" id="1_03iqk"]
+[ext_resource type="Script" uid="uid://dq07iduoo3tvy" path="res://Scripts/GameManager.cs" id="1_ihreq"]
+[ext_resource type="Texture2D" uid="uid://rl37vi4m7auq" path="res://Assets/Image/Field/Field1.png" id="1_w51g1"]
+[ext_resource type="PackedScene" uid="uid://cqpnfr35255vt" path="res://Scene/balls.tscn" id="3_4jv7b"]
+[ext_resource type="PackedScene" uid="uid://c41u1asimnl4c" path="res://Scene/player.tscn" id="3_xsmcn"]
+[ext_resource type="Texture2D" uid="uid://bqdq8e17yjuge" path="res://Assets/Image/Field/BG/2.png" id="4_twwsd"]
+[ext_resource type="Texture2D" uid="uid://ef7unspob3f8" path="res://Assets/Image/Field/BG/3.png" id="5_c6b8m"]
+[ext_resource type="Texture2D" uid="uid://c4br1s7v1kwvv" path="res://Assets/Image/Field/BG/4.png" id="6_0ka5k"]
+[ext_resource type="Texture2D" uid="uid://bj23pump4xfgs" path="res://Assets/Image/Field/Field2.png" id="8_ha7wd"]
+[ext_resource type="Texture2D" uid="uid://cp6uul8rtvm4h" path="res://Assets/Image/Field/Field3.png" id="9_yjs1f"]
+[ext_resource type="Texture2D" uid="uid://08al522g7c3c" path="res://Assets/Image/Field/Field4.png" id="10_vyw1f"]
+[ext_resource type="Texture2D" uid="uid://bsdmaovcj2df8" path="res://Assets/Image/Field/Side/bar_Under.png" id="11_m52p7"]
+[ext_resource type="Script" uid="uid://vxptpwwymh7q" path="res://Scripts/BallManager.cs" id="12_0ka5k"]
+[ext_resource type="Texture2D" uid="uid://t8niwbssssi2" path="res://Assets/Image/Field/Clock.png" id="12_vy0et"]
+[ext_resource type="FontFile" uid="uid://du8kjdsciy6c0" path="res://Fonts/24_Akubin.ttf" id="13_ha7wd"]
+[ext_resource type="Script" uid="uid://c3vghui12uel8" path="res://Scripts/StartTimer.cs" id="14_yjs1f"]
+[ext_resource type="FontFile" uid="uid://chl77pcgwm834" path="res://Fonts/138_Verdana.ttf" id="16_sqb0o"]
+[ext_resource type="AudioStream" uid="uid://semrb3k6gnol" path="res://Assets/Sounds/BGM0.mp3" id="18_5smqc"]
+[ext_resource type="Script" uid="uid://cbmedei132bo0" path="res://Scripts/GameTimer.cs" id="18_mo8cs"]
+[ext_resource type="AudioStream" uid="uid://dlgnefqw0fj6v" path="res://Assets/Sounds/BGM1.mp3" id="19_mo8cs"]
+[ext_resource type="AudioStream" uid="uid://lymmykitdvbi" path="res://Assets/Sounds/TimeTicking.mp3" id="19_yxhj1"]
+[ext_resource type="AudioStream" uid="uid://1uvepnupf8ss" path="res://Assets/Sounds/BGM2.mp3" id="20_nnpbk"]
+[ext_resource type="AudioStream" uid="uid://ccblaxuiuko5q" path="res://Assets/Sounds/Start.mp3" id="20_xsmcn"]
+[ext_resource type="AudioStream" uid="uid://dv2v0fv4mfex3" path="res://Assets/Sounds/Over.mp3" id="21_myi3l"]
+[ext_resource type="AudioStream" uid="uid://c3deftqog7kbr" path="res://Assets/Sounds/BGM3.mp3" id="21_xl7p6"]
+[ext_resource type="AudioStream" uid="uid://bml87crulktm5" path="res://Assets/Sounds/Break(普通球，蝙蝠未撞到玩家).mp3" id="26_xsmcn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mhtsl"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("BG", "BG1", "BG2", "BG3", "Fie", "Fie1", "Fie2", "Fie3", "BGM0", "BGM1", "BGM2", "BGM3", "BM", "ST", "GT", "GameO", "spawner", "Pspawner")]
+y_sort_enabled = true
+script = ExtResource("1_ihreq")
+Type = 1
+BG = NodePath("BGs/BackGround")
+BG1 = NodePath("BGs/BackGround2")
+BG2 = NodePath("BGs/BackGround3")
+BG3 = NodePath("BGs/BackGround4")
+Fie = NodePath("Fields/Field")
+Fie1 = NodePath("Fields/Field2")
+Fie2 = NodePath("Fields/Field3")
+Fie3 = NodePath("Fields/Field4")
+BGM0 = NodePath("Sounds/BGM0")
+BGM1 = NodePath("Sounds/BGM1")
+BGM2 = NodePath("Sounds/BGM2")
+BGM3 = NodePath("Sounds/BGM3")
+Ball = ExtResource("3_4jv7b")
+player = ExtResource("3_xsmcn")
+BM = NodePath("BallManager")
+ST = NodePath("Timers/StartTimer")
+GT = NodePath("Timers/GameTimer")
+GameO = NodePath("Labels/戦闘終了！")
+spawner = NodePath("BallSpawner")
+Pspawner = NodePath("playerSpawner")
+metadata/_edit_horizontal_guides_ = [-156.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position = Vector2(114, -35)
+scale = Vector2(0.840602, 0.896578)
+zoom = Vector2(1.345, 1.345)
+
+[node name="Boundary" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Left" type="StaticBody2D" parent="Boundary"]
+position = Vector2(-202, 0)
+rotation = 1.57079
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
+shape = SubResource("WorldBoundaryShape2D_mhtsl")
+
+[node name="Right" type="StaticBody2D" parent="Boundary"]
+position = Vector2(201, 0)
+rotation = -1.57079
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
+shape = SubResource("WorldBoundaryShape2D_mhtsl")
+
+[node name="Up" type="StaticBody2D" parent="Boundary"]
+position = Vector2(0, -204)
+rotation = -3.14159
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Up"]
+shape = SubResource("WorldBoundaryShape2D_mhtsl")
+
+[node name="Down" type="StaticBody2D" parent="Boundary"]
+position = Vector2(0, 197)
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Down"]
+shape = SubResource("WorldBoundaryShape2D_mhtsl")
+
+[node name="BGs" type="Node2D" parent="."]
+
+[node name="BackGround" type="Sprite2D" parent="BGs"]
+position = Vector2(-38, -162)
+texture = ExtResource("1_03iqk")
+metadata/_edit_lock_ = true
+
+[node name="BackGround2" type="Sprite2D" parent="BGs"]
+visible = false
+position = Vector2(-38, -162)
+texture = ExtResource("4_twwsd")
+metadata/_edit_lock_ = true
+
+[node name="BackGround3" type="Sprite2D" parent="BGs"]
+visible = false
+position = Vector2(-38, -162)
+texture = ExtResource("5_c6b8m")
+metadata/_edit_lock_ = true
+
+[node name="BackGround4" type="Sprite2D" parent="BGs"]
+visible = false
+position = Vector2(-38, -162)
+texture = ExtResource("6_0ka5k")
+metadata/_edit_lock_ = true
+
+[node name="Fields" type="Node2D" parent="."]
+
+[node name="Field" type="Sprite2D" parent="Fields"]
+texture = ExtResource("1_w51g1")
+metadata/_edit_lock_ = true
+
+[node name="Field2" type="Sprite2D" parent="Fields"]
+visible = false
+texture = ExtResource("8_ha7wd")
+metadata/_edit_lock_ = true
+
+[node name="Field3" type="Sprite2D" parent="Fields"]
+visible = false
+texture = ExtResource("9_yjs1f")
+metadata/_edit_lock_ = true
+
+[node name="Field4" type="Sprite2D" parent="Fields"]
+visible = false
+texture = ExtResource("10_vyw1f")
+metadata/_edit_lock_ = true
+
+[node name="ClockBG" type="Sprite2D" parent="Fields"]
+position = Vector2(-16, -251)
+scale = Vector2(0.505706, 0.750971)
+texture = ExtResource("11_m52p7")
+
+[node name="Clock" type="Sprite2D" parent="Fields"]
+position = Vector2(-65, -253)
+scale = Vector2(1.29976, 1.29976)
+texture = ExtResource("12_vy0et")
+
+[node name="BallManager" type="Node2D" parent="." node_paths=PackedStringArray("BreakS")]
+process_mode = 3
+script = ExtResource("12_0ka5k")
+BreakS = NodePath("../Sounds/Break")
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="倒数" type="Label" parent="Labels"]
+z_index = 3
+offset_left = -22.0
+offset_top = -52.0
+offset_right = 21.0
+offset_bottom = 11.0
+theme_override_colors/font_outline_color = Color(0.109804, 0.254902, 0.741176, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("13_ha7wd")
+theme_override_font_sizes/font_size = 60
+text = "3"
+
+[node name="倒数2" type="Label" parent="Labels"]
+z_index = 3
+offset_left = -26.0
+offset_top = -269.0
+offset_right = 59.0
+offset_bottom = -206.0
+theme_override_colors/font_outline_color = Color(0.109804, 0.254902, 0.741176, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_sqb0o")
+theme_override_font_sizes/font_size = 40
+text = "120"
+
+[node name="戦闘開始！" type="Label" parent="Labels"]
+visible = false
+z_index = 3
+offset_left = -129.0
+offset_top = -52.0
+offset_right = 114.0
+offset_bottom = 11.0
+theme_override_colors/font_outline_color = Color(0.109804, 0.254902, 0.741176, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("13_ha7wd")
+theme_override_font_sizes/font_size = 60
+text = "戦闘開始！"
+
+[node name="戦闘終了！" type="Label" parent="Labels"]
+visible = false
+z_index = 3
+offset_left = -129.0
+offset_top = -51.0
+offset_right = 114.0
+offset_bottom = 12.0
+theme_override_colors/font_outline_color = Color(0.109804, 0.254902, 0.741176, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("13_ha7wd")
+theme_override_font_sizes/font_size = 60
+text = "戦闘終了！"
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="StartTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("GameS", "ReverseCnt", "GT", "StartSound")]
+process_mode = 2
+wait_time = 4.0
+one_shot = true
+autostart = true
+script = ExtResource("14_yjs1f")
+GameS = NodePath("../../Labels/戦闘開始！")
+ReverseCnt = NodePath("../../Labels/倒数")
+GT = NodePath("../GameTimer")
+StartSound = NodePath("../../Sounds/Start")
+
+[node name="GameTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("RCnt", "Over", "OverSound", "TickSound")]
+script = ExtResource("18_mo8cs")
+RCnt = NodePath("../../Labels/倒数2")
+Over = NodePath("../../Labels/戦闘終了！")
+OverSound = NodePath("../../Sounds/Over")
+TickSound = NodePath("../../Sounds/TimeTicking")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="TimeTicking" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("19_yxhj1")
+
+[node name="Start" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("20_xsmcn")
+
+[node name="Over" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("21_myi3l")
+
+[node name="BGM0" type="AudioStreamPlayer" parent="Sounds"]
+process_mode = 3
+stream = ExtResource("18_5smqc")
+parameters/looping = true
+
+[node name="BGM1" type="AudioStreamPlayer" parent="Sounds"]
+process_mode = 3
+stream = ExtResource("19_mo8cs")
+parameters/looping = true
+
+[node name="BGM2" type="AudioStreamPlayer" parent="Sounds"]
+process_mode = 3
+stream = ExtResource("20_nnpbk")
+parameters/looping = true
+
+[node name="BGM3" type="AudioStreamPlayer" parent="Sounds"]
+process_mode = 3
+stream = ExtResource("21_xl7p6")
+parameters/looping = true
+
+[node name="Break" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("26_xsmcn")
+
+[node name="playerSpawner" type="MultiplayerSpawner" parent="."]
+process_mode = 3
+_spawnable_scenes = PackedStringArray("uid://c41u1asimnl4c")
+spawn_path = NodePath("../Players")
+
+[node name="BallSpawner" type="MultiplayerSpawner" parent="."]
+process_mode = 3
+_spawnable_scenes = PackedStringArray("uid://cqpnfr35255vt")
+spawn_path = NodePath("../BallManager")
+
+[node name="Players" type="Node2D" parent="."]
+
+[connection signal="timeout" from="Timers/StartTimer" to="Timers/StartTimer" method="STFree"]
+[connection signal="timeout" from="Timers/GameTimer" to="Timers/GameTimer" method="Tick"]
