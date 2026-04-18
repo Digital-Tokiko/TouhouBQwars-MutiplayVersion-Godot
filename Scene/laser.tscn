@@ -1,0 +1,150 @@
+[gd_scene load_steps=33 format=3 uid="uid://cfxah232dsamf"]
+
+[ext_resource type="Script" uid="uid://bc3sar0lyeygj" path="res://Scripts/Laser.cs" id="1_cm70x"]
+[ext_resource type="Texture2D" uid="uid://clsbu0cl1th4i" path="res://Assets/Image/Bullets/Laser/1.png" id="1_hid48"]
+[ext_resource type="Texture2D" uid="uid://dif5ow7ierkna" path="res://Assets/Image/Bullets/Laser/2.png" id="2_cm70x"]
+[ext_resource type="Texture2D" uid="uid://umhprkwl3sbc" path="res://Assets/Image/Bullets/Laser/3.png" id="3_b0mb1"]
+[ext_resource type="Texture2D" uid="uid://bbq0cgug7if4o" path="res://Assets/Image/Bullets/Laser/4.png" id="4_m7uhc"]
+[ext_resource type="Texture2D" uid="uid://ok4n8qyqt6bf" path="res://Assets/Image/Bullets/Laser/5.png" id="5_5g0gn"]
+[ext_resource type="Texture2D" uid="uid://bmvhx073kiqy2" path="res://Assets/Image/Bullets/Laser/6.png" id="6_rfyuc"]
+[ext_resource type="Texture2D" uid="uid://ccovcj63niykg" path="res://Assets/Image/Bullets/Laser/7.png" id="7_5q8sd"]
+[ext_resource type="Texture2D" uid="uid://c7g5yru1xdlqu" path="res://Assets/Image/Bullets/Laser/8.png" id="8_xugnh"]
+[ext_resource type="Texture2D" uid="uid://b0k3bqepvd1xe" path="res://Assets/Image/Bullets/Laser/9.png" id="9_om102"]
+[ext_resource type="Texture2D" uid="uid://bwace6k12ga1" path="res://Assets/Image/Bullets/Laser/10.png" id="10_1uu7v"]
+[ext_resource type="Texture2D" uid="uid://ocaalrgndskr" path="res://Assets/Image/Bullets/Laser/11.png" id="11_ow6ym"]
+[ext_resource type="Texture2D" uid="uid://cqubovalsrxk4" path="res://Assets/Image/Bullets/Laser/12.png" id="12_0l0oc"]
+[ext_resource type="Texture2D" uid="uid://b5t2qhys75ome" path="res://Assets/Image/Bullets/Laser/13.png" id="13_8sfn3"]
+[ext_resource type="Texture2D" uid="uid://cka7sxttj8fl2" path="res://Assets/Image/Bullets/Laser/14.png" id="14_jwrxc"]
+[ext_resource type="Texture2D" uid="uid://xgt58tg7r5fn" path="res://Assets/Image/Bullets/Laser/15.png" id="15_toxwt"]
+[ext_resource type="Texture2D" uid="uid://bfx3g731428wk" path="res://Assets/Image/Bullets/Laser/16.png" id="16_1tpoj"]
+[ext_resource type="Texture2D" uid="uid://cwtm5adipurgc" path="res://Assets/Image/Bullets/Laser/17.png" id="17_r0on7"]
+[ext_resource type="Texture2D" uid="uid://bcrsh5r36mo8g" path="res://Assets/Image/Bullets/Laser/18.png" id="18_6g2nw"]
+[ext_resource type="Texture2D" uid="uid://dki6nmyhr0kde" path="res://Assets/Image/Bullets/Laser/19.png" id="19_873v2"]
+[ext_resource type="Texture2D" uid="uid://77rukycnccoe" path="res://Assets/Image/Bullets/Laser/20.png" id="20_xaj5w"]
+[ext_resource type="Texture2D" uid="uid://405u03faakci" path="res://Assets/Image/Bullets/Laser/21.png" id="21_vc878"]
+[ext_resource type="Texture2D" uid="uid://bevlqqb77khs5" path="res://Assets/Image/Bullets/Laser/22.png" id="22_ycttj"]
+[ext_resource type="Texture2D" uid="uid://cnce8ctacbctd" path="res://Assets/Image/Bullets/Laser/23.png" id="23_555sw"]
+[ext_resource type="Texture2D" uid="uid://bbokt0rrok8nv" path="res://Assets/Image/Bullets/Laser/24.png" id="24_4by6k"]
+[ext_resource type="Texture2D" uid="uid://5sl2qgkuhvj0" path="res://Assets/Image/Bullets/Laser/25.png" id="25_4o1sm"]
+[ext_resource type="Texture2D" uid="uid://ckjypl6iw4o6v" path="res://Assets/Image/Bullets/Laser/26.png" id="26_p8u0g"]
+[ext_resource type="Texture2D" uid="uid://d1cwraw84ur6w" path="res://Assets/Image/Bullets/Laser/27.png" id="27_e5spp"]
+[ext_resource type="AudioStream" uid="uid://cnwagfigdmwm" path="res://Assets/Sounds/PlayerBeenHit.mp3" id="29_b0mb1"]
+[ext_resource type="AudioStream" uid="uid://cjjj7gnpahow1" path="res://Assets/Sounds/Bagualu.mp3" id="30_m7uhc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rtn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hid48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cm70x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b0mb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m7uhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5g0gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rfyuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5q8sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xugnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_om102")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1uu7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ow6ym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0l0oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8sfn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jwrxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_toxwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1tpoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_r0on7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6g2nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_873v2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xaj5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vc878")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ycttj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_555sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4by6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4o1sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_p8u0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_e5spp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm70x"]
+size = Vector2(312, 20)
+
+[node name="Laser" type="Area2D" node_paths=PackedStringArray("HitS", "BGLS")]
+collision_mask = 2
+script = ExtResource("1_cm70x")
+HitS = NodePath("Hit")
+BGLS = NodePath("BGL")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.684736, 0.684736)
+sprite_frames = SubResource("SpriteFrames_6rtn1")
+autoplay = "default"
+frame = 14
+frame_progress = 0.775492
+offset = Vector2(257.033, 0)
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+position = Vector2(195, -1)
+shape = SubResource("RectangleShape2D_cm70x")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_b0mb1")
+
+[node name="BGL" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_m7uhc")
+
+[connection signal="body_entered" from="." to="." method="Blasted"]
